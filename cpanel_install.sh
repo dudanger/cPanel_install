@@ -1,0 +1,2 @@
+ ip_l=`ip addr|grep inet|grep -vE "inet6|127.0.0.1"|awk '{print$2}'|awk -F. '{print$4}'|awk -F/ '{print$1}'`;yum remove -y openoffice.org-core firefox &&hostname $ip_l.test.com && cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest && echo "$ip_l cpanel ok" |mail -s "cpanel ok" mail@mail.com 
+ echo "$ip_l cpanal FAIL !!!!!!" |mail -s "cpanel install failed " mail@mail.com;
